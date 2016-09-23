@@ -1,8 +1,132 @@
 html, body{
     height:100%;
     width:100%;
+    background-image:url('simon/img/space.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y:-250px; ;
+    margin:0;
+    padding:0;
 }
 
-h1{
-    font-size:75px;
+.container{
+    height:900px;
+    width:900px;
+    margin:100px auto;
+    position:relative;
+}
+
+.spacing-diamond{
+    z-index:4;
+    height:800px;
+    width:800px;
+    border:1px solid silver;
+    box-sizing:border-box;
+    padding:0;
+    margin:auto;
+    position:relative;
+    transform: rotate(45deg);
+    top:100px;
+}
+
+
+.center-diamond{
+    position:absolute;
+    top:248px;
+    left:195px;
+    height:550px;
+    width:550px;
+    background-color:silver;
+    border:20px outset gray;
+    transform: rotate(45deg);
+    box-sizing: border-box;
+    box-shadow: 0 0 20px;
+}
+
+.pad{
+    position:absolute;
+    height:250px;
+    width:250px;
+    transform:rotate(45deg);
+    border:10px outset silver;
+    z-index:3;
+    box-sizing:border-box;
+    box-shadow:0 0 10px;
+}
+
+.red{
+    background-color:red;
+    top:-25px;
+    left:350px;
+}
+
+.blue{
+    background-color:blue;
+    top:400px;
+    left:771px;
+
+}
+
+.yellow{
+    background-color:yellow;
+    top:825px;
+    left:350px;
+}
+
+.green{
+    background-color:green;
+    top:400px;
+    left:-72px;
+}
+
+.controls{
+   transform:rotate(-45deg);
+   top:100px;
+   left:112px;
+   width:60%;
+   position:relative;
+}
+
+.controls li{
+    font-size:40px;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+    text-align:left;
+    margin-bottom:10px;
+    
+}
+
+.buttons{
+    position:relative;
+    top:50px;
+    left:-32px;
+}
+
+
+.buttons button{
+    height:50px;
+    width:90px;
+    font-size:20px;
+    font-weight:bold;
+    margin-left:50px;
+    border-radius:5px;
+}
+
+.radio-btn{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background-color:black;
+    display:inline-block;
+    margin-right:10px;
+}
+
+#start{
+    background-color:green;
+    color:white;
+}
+
+#reset{
+    background-color:orange;
+    color:white;
 }

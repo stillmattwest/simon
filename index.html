@@ -1,17 +1,40 @@
 <!DOCTYPE html>
+
 <head>
     <title>CodeSLO Simon</title>
-    <link rel='stylesheet' href='style.css'/>
+    <link rel='stylesheet' href='style.css' />
 </head>
+
 <body>
-<div class='container'>
-<h1>It's time for Simon</h1>
-
-
-
-</div> <!-- end container -->
-<!-- scripts below here -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src='client.js'></script>
+    <div class='container'>
+        <div class='center-diamond'>
+            <div class='controls'>
+                <ul class='difficulty'>
+                    <li id='easy'><span class='radio-btn'>&nbsp</span>EASY</li>
+                    <li id='strict'><span class='radio-btn'>&nbsp</span>STRICT</li>
+                    <li id='insane'><span class='radio-btn'>&nbsp</span>INSANE</li>
+                </ul>
+                <div class='buttons'>
+                    <button id='start'>START</button>
+                    <button id='reset'>RESET</button>
+                </div>
+            </div>
+        </div>
+        <div class='ring'>
+        </div>
+        <div class='pad red'>
+        </div>
+        <div class='pad blue'>
+        </div>
+        <div class='pad yellow'>
+        </div>
+        <div class='pad green'>
+        </div>
+    </div>
+    <!-- end container -->
+    <!-- scripts below here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src='client.js'></script>
 </body>
+
 </html>
