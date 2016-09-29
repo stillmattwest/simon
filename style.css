@@ -55,28 +55,56 @@ html, body{
 }
 
 .red{
-    background-color:red;
+    background-color:#AA3F3C;
     top:-25px;
     left:350px;
 }
 
+.red-lit{
+    background-color:#F13319;
+    top:-25px;
+    left:350px;
+    box-shadow:0 0 10px #F13319;
+}
+
 .blue{
-    background-color:blue;
+    background-color:#3AA8CB;
     top:400px;
     left:771px;
 
 }
+.blue-lit{
+    background-color:#A4EBFF;
+    top:400px;
+    left:771px;
+    box-shadow: 0 0 10px #A4EBFF;
+
+}
 
 .yellow{
-    background-color:yellow;
+    background-color:#E0D715;
     top:825px;
     left:350px;
 }
 
+.yellow-lit{
+    background-color:#FDFC0C;
+    top:825px;
+    left:350px;
+    box-shadow:0 0 10px #FDFC0C;
+}
+
 .green{
-    background-color:green;
+    background-color:#1BB20D;
     top:400px;
     left:-72px;
+}
+
+.green-lit{
+    background-color:#35FE36;
+    top:400px;
+    left:-72px;
+    box-shadow:0 0 10px #35FE36;
 }
 
 .controls{
