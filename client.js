@@ -7,21 +7,33 @@ $(document).ready(function () {
         redReady: true,
         yellowReady: true,
         pattern: [],
-        padSpeed: 500
+        playerPattern:[],
+        padSpeed: 500,
+        playerTurn: false,
+        timer:60,
+        level:1,
+        gameOver: true
     };
 
     // CLICK FUNCTIONS
 
     $('.pad').click(function () {
-        var id = $(this).attr('id');
-        activatePad(id);
+        if (gameState.playerTurn) {
+            var id = $(this).attr('id');
+            // light pad
+            activatePad(id);
+            // add clicked pad id to playerPattern
+            gameState.playerPattern.push(id);
+            // check to see if playerPattern matches game pattern
+            checkMatch();
+        }
     });
 
 
     // DOM OPERATIONS
 
-    function activatePad(id) {
-        var pad = '#' + id;
+    function activatePad(id, speed) {
+        var pad = id;
         var classes = $(pad).attr('class').split(' ');
         var color = classes[1];
         var lit = color + '-lit';
@@ -34,7 +46,7 @@ $(document).ready(function () {
                 $(pad).toggleClass(lit);
                 $(pad).toggleClass(color);
                 gameState[prop] = true;
-            }, gameState.padSpeed);
+            }, speed);
         }
     }
 
@@ -56,44 +68,113 @@ $(document).ready(function () {
         var litColor;
         var prop;
         switch (num) {
-            case 1: pad = 'blue-pad';
+            case 1: pad = '#blue-pad';
                 break;
-            case 2: pad = 'green-pad';
+            case 2: pad = '#green-pad';
                 break;
-            case 3: pad = 'red-pad';
+            case 3: pad = '#red-pad';
                 break;
-            case 4: pad = 'yellow-pad';
+            case 4: pad = '#yellow-pad';
                 break;
-            default: console.log('broke');
+            default: console.log('it broke');
         }
         gameState.pattern.push(pad);
     }
 
-    // testing only. Fills pattern array with pad ids.
-
-    for (var i = 0; i < 10; i++) {
-        getPad();
-    }
 
     // play pattern
     function playPattern(pattern) {
         var counter = 0;
         var id;
+        gameState.playerTurn = false;
         setInterval(function () {
             if (counter < pattern.length) {
                 id = pattern[counter];
-                activatePad(id);
+                activatePad(id, gameState.padSpeed);
                 counter++;
-            }else{
+            } else {
+                gameState.playerTurn = true;
                 return;
             }
-        },gameState.padSpeed);
+        }, gameState.padSpeed + 10);
     }
 
-    playPattern(gameState.pattern);
+    // begin game 
+    function startGame() {
 
-    // 
 
+        function gameLoop(level){
+        // add one to the pattern
+        getPad();
+        // playPattern
+        playPattern();
+        // start a timer for player to match pattern.
+        startTimer();
+
+
+        // if player gets it wrong, flash a modal to try again and repeat pattern (easy mode)
+        }
+
+    }
+
+    // turn timer
+    function startTimer(){
+        gameState.timer = 60;
+        setInterval(function(){
+            if(gameState.timer > 0){
+                gameState.timer --;
+            }else{
+                stopTimer();
+                console.log('time is up!');
+                loseGame();
+                return;
+            }
+        },1000);
+    }
+
+    function stopTimer(){
+        clearInterval(startTimer);
+    }
+
+    function checkMatch(){
+        var playerPattern = gameState.playerPattern;
+        var pattern = gameState.pattern;
+        for(var i = 0; i<playerPattern.length;i++){
+            if(playerPattern[i] !== pattern[i]){
+                loseGame();
+                return;
+            }
+        }
+        if(playerPattern.length === pattern.length){
+            levelUp();
+            return;
+        }
+        return;
+    }
+
+    // lose the game
+    function loseGame(){
+        console.log('You lost!');
+    }
+
+    // level up
+    function levelUp(){
+        gameState.level++;
+    }
+
+    // reset game
+    function resetGame() {
+        gameState = {
+            blueReady: true,
+            greenReady: true,
+            redReady: true,
+            yellowReady: true,
+            pattern: [],
+            padSpeed: 500,
+            playerTurn: false,
+            gameOver: true
+        };
+    }
 
 
 
