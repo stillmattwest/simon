@@ -38,7 +38,7 @@ $('document').ready(function () {
             yellowReady: true,
             pattern: [],
             playerPattern: [],
-            padSpeed: 600,
+            padSpeed: 500,
             playerTurn: false,
             timer: 60,
             gameOver: true
@@ -48,7 +48,7 @@ $('document').ready(function () {
     // run one turn
     function gameTurn() {
         // if timer exists, reset it
-        if(window.turnTimer){
+        if (window.turnTimer) {
             stopTimer();
         }
         // reset playerPattern
@@ -139,11 +139,16 @@ $('document').ready(function () {
             gameState[prop] = false;
             $(pad).toggleClass(color);
             $(pad).toggleClass(lit);
+            if (!gameState.gameOver) {
+                $.playSound('./sounds/' + color + '-' + speed);
+            } else {
+                $.playSound('./sounds/lose');
+            }
             setTimeout(function () {
                 $(pad).toggleClass(lit);
                 $(pad).toggleClass(color);
                 gameState[prop] = true;
-            }, speed -100);
+            }, speed - 100);
         }
     }
 
@@ -151,21 +156,21 @@ $('document').ready(function () {
     $('.pad').click(function () {
         if (gameState.playerTurn) {
             var id = '#' + $(this).attr('id');
-            // light pad
-            activatePad(id, 350);
             // add clicked pad id to playerPattern
             gameState.playerPattern.push(id);
             // check to see if playerPattern matches game pattern
-            checkMatch();
+            checkMatch(id);
         }
     });
 
     // checkMatch function
-    function checkMatch() {
+    function checkMatch(id) {
         var playerPattern = gameState.playerPattern;
         var pattern = gameState.pattern;
         var lastIndex = playerPattern.length - 1;
         if (playerPattern[lastIndex] === pattern[lastIndex]) {
+            // light pad
+            activatePad(id, gameState.padSpeed);
             // check to see if playerPattern and pattern are same length. If so, start new turn
             if (playerPattern.length === pattern.length) {
                 setTimeout(function () {
@@ -173,13 +178,14 @@ $('document').ready(function () {
                 }, 1000);
             }
         } else {
-            loseGame();
+            loseGame(pattern[lastIndex]);
         }
     } // end checkMatch function
 
     // loseGame function
-    function loseGame() {
+    function loseGame(id) {
         gameState.gameOver = true;
+        activatePad(id, 1000);
         stopTimer();
         console.log('You lost!');
     }
