@@ -1,7 +1,7 @@
 html, body{
     height:100%;
     width:100%;
-    background-image:url('simon/img/space.jpg');
+    background-image:url('img/space.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y:-250px; ;
@@ -147,6 +147,10 @@ html, body{
     background-color:black;
     display:inline-block;
     margin-right:10px;
+}
+
+.radio-btn-lit{
+    background-color:#FDFC0C;
 }
 
 #start{

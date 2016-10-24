@@ -11,7 +11,8 @@ $('document').ready(function () {
         padSpeed: 500,
         playerTurn: false,
         timer: 60,
-        gameOver: true
+        gameOver: true,
+        easyMode: true
     };
 
     // handle it when player clicks start
@@ -19,8 +20,18 @@ $('document').ready(function () {
         startGame();
     });
 
+    $('.radio-btn').click(function () {
+        $('.radio-btn').removeClass('radio-btn-lit');
+        $(this).toggleClass('radio-btn-lit');
+        var id = $(this).parent().attr('id');
+        if (id === 'easy') {
+            gameState.easyMode = true;
+        } else {
+            gameState.easyMode = false;
+        }
+    });
 
-    // start game function
+
     // begin game 
     function startGame() {
         resetGame();
@@ -41,7 +52,8 @@ $('document').ready(function () {
             padSpeed: 500,
             playerTurn: false,
             timer: 60,
-            gameOver: true
+            gameOver: true,
+            easyMode: gameState.easyMode
         };
     }
 
@@ -105,7 +117,7 @@ $('document').ready(function () {
     }
 
     function stopTimer() {
-        clearInterval(turnTimer);
+        clearInterval(window.turnTimer);
     }
 
     // playPattern function
@@ -121,8 +133,8 @@ $('document').ready(function () {
                 counter++;
             } else {
                 counter = 0;
-                gameState.playerTurn = true;
                 clearInterval(playlist);
+                gameState.playerTurn = true;
                 return;
             }
         }, gameState.padSpeed);
@@ -160,6 +172,8 @@ $('document').ready(function () {
             gameState.playerPattern.push(id);
             // check to see if playerPattern matches game pattern
             checkMatch(id);
+        } else {
+            return;
         }
     });
 
@@ -173,6 +187,9 @@ $('document').ready(function () {
             activatePad(id, gameState.padSpeed);
             // check to see if playerPattern and pattern are same length. If so, start new turn
             if (playerPattern.length === pattern.length) {
+                if(playerPattern.length === 20){
+                    winGame();
+                }
                 setTimeout(function () {
                     gameTurn();
                 }, 1000);
@@ -185,9 +202,33 @@ $('document').ready(function () {
     // loseGame function
     function loseGame(id) {
         gameState.gameOver = true;
+        gameState.playerTurn = false;
         activatePad(id, 1000);
         stopTimer();
-        console.log('You lost!');
+        setTimeout(function () {
+            if (gameState.easyMode) {
+                alert('Easy mode. Try again!');
+                setTimeout(function () {
+                    gameState.gameOver = false;
+                    gameState.playerPattern = [];
+                    playPattern(gameState.pattern);
+                }, 1000);
+            } else {
+                alert('Strict mode. Game over. Click start to begin a new game.');
+                resetGame();
+            }
+        }, 2000);
+
     }
 
-}); // end document ready
+    function winGame(){
+        setTimeout(function(){
+            gameState.playerTurn = false;
+            stopTimer();
+            alert('That\'s 20, you win!');
+            resetGame();
+        },gameState.padSpeed);
+    }
+
+
+}); // end document read
