@@ -22,7 +22,7 @@ $('document').ready(function () {
 
     $('.radio-btn').click(function () {
         $('.radio-btn').removeClass('radio-btn-lit');
-        $(this).toggleClass('radio-btn-lit');
+        $(this).addClass('radio-btn-lit');
         var id = $(this).parent().attr('id');
         if (id === 'easy') {
             gameState.easyMode = true;
