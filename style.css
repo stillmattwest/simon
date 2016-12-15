@@ -32,10 +32,10 @@ html, body{
 
 .center-diamond{
     position:absolute;
-    top:248px;
-    left:195px;
-    height:550px;
-    width:550px;
+    top:400px;
+    left:280px;
+    height:350px;
+    width:350px;
     background-color:silver;
     border:20px outset gray;
     transform: rotate(45deg);
@@ -45,8 +45,8 @@ html, body{
 
 .pad{
     position:absolute;
-    height:250px;
-    width:250px;
+    height:200px;
+    width:200px;
     transform:rotate(45deg);
     border:10px outset silver;
     z-index:3;
@@ -56,78 +56,78 @@ html, body{
 
 .red{
     background-color:#AA3F3C;
-    top:-25px;
-    left:350px;
+    top:154px;
+    left:353px;
 }
 
 .red-lit{
     background-color:#F13319;
-    top:-25px;
-    left:350px;
+    top:154px;
+    left:353px;
     box-shadow:0 0 10px #F13319;
 }
 
 .blue{
     background-color:#3AA8CB;
-    top:400px;
-    left:771px;
+    top:475px;
+    left:677px;
 
 }
 .blue-lit{
     background-color:#A4EBFF;
-    top:400px;
-    left:771px;
+    top:475px;
+    left:677px;
     box-shadow: 0 0 10px #A4EBFF;
 
 }
 
 .yellow{
     background-color:#E0D715;
-    top:825px;
-    left:350px;
+    top:798px;
+    left:356px;
 }
 
 .yellow-lit{
     background-color:#FDFC0C;
-    top:825px;
-    left:350px;
+    top:798px;
+    left:356px;
     box-shadow:0 0 10px #FDFC0C;
 }
 
 .green{
     background-color:#1BB20D;
-    top:400px;
-    left:-72px;
+    top:476px;
+    left:34px;
 }
 
 .green-lit{
     background-color:#35FE36;
-    top:400px;
-    left:-72px;
+    top:476px;
+    left:34px;
     box-shadow:0 0 10px #35FE36;
 }
 
 .controls{
    transform:rotate(-45deg);
-   top:100px;
-   left:112px;
-   width:60%;
+   top:37px;
+   left:55px;
+   width:75%;
    position:relative;
 }
 
 .controls li{
-    font-size:40px;
+    font-size:36px;
     font-family: Arial, Helvetica, sans-serif;
     list-style: none;
     text-align:left;
-    margin-bottom:10px;
+    margin-bottom:20px;
     
 }
 
 .buttons{
     position:relative;
-    top:50px;
-    left:-32px;
+    top:3px;
+    left:21px;
 }
 
 
@@ -137,6 +137,7 @@ html, body{
     font-size:20px;
     font-weight:bold;
     margin-left:50px;
+    margin-bottom:10px;
     border-radius:5px;
 }
 
@@ -162,3 +163,4 @@ html, body{
     background-color:orange;
     color:white;
 }
+
