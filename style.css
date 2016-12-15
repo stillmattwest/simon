@@ -27,8 +27,8 @@ html, body{
 
 .center-diamond{
     position:absolute;
-    top:189px;
-    left:220px;
+    top:188px;
+    left:168px;
     height:250px;
     width:250px;
     background-color:silver;
@@ -50,62 +50,62 @@ html, body{
 }
 
 .red{
-    background-color:#AA3F3C;
-    top:7px;
-    left:271px;
+    background-color:#360E16;
+    top:17px;
+    left:218px;
 }
 
 .red-lit{
     background-color:#F13319;
-     top:7px;
-    left:271px;
+    top:17px;
+    left:218px;
     box-shadow:0 0 10px #F13319;
 }
 
 .blue{
-    background-color:#3AA8CB;
+    background-color:#100679;
     top:239px;
-    left:511px;
+    left:451px;
 
 }
 .blue-lit{
     background-color:#A4EBFF;
     top:239px;
-    left:511px;
+    left:451px;
     box-shadow: 0 0 10px #A4EBFF;
 
 }
 
 .yellow{
-    background-color:#E0D715;
-    top:477px;
-    left:271px;
+    background-color:#936C03;
+    top:469px;
+    left:218px;
 }
 
 .yellow-lit{
     background-color:#FDFC0C;
-    top:477px;
-    left:271px;
+    top:469px;
+    left:218px;
     box-shadow:0 0 10px #FDFC0C;
 }
 
 .green{
-    background-color:#1BB20D;
+    background-color:#112212;
     top:239px;
-    left:30px;
+    left:-11px;
 }
 
 .green-lit{
     background-color:#35FE36;
     top:239px;
-    left:30px;
+    left:-11px;
     box-shadow:0 0 10px #35FE36;
 }
 
 .controls{
    transform:rotate(-45deg);
    top:31px;
-   left:39px;
+   left:36px;
    width:80%;
    position:relative;
 }
@@ -122,7 +122,7 @@ html, body{
 .buttons{
     position:relative;
     top:-8px;
-    left:7px;
+    left:11px;
 }
 
 
