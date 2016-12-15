@@ -10,9 +10,9 @@ html, body{
 }
 
 .container{
-    height:900px;
-    width:900px;
-    margin:100px auto;
+    height:600px;
+    width:600px;
+    margin:50px auto;
     position:relative;
 }
 
@@ -34,10 +34,10 @@ html, body{
     position:absolute;
     top:400px;
     left:280px;
-    height:350px;
-    width:350px;
+    height:250px;
+    width:250px;
     background-color:silver;
-    border:20px outset gray;
+    border:10px outset gray;
     transform: rotate(45deg);
     box-sizing: border-box;
     box-shadow: 0 0 20px;
@@ -45,10 +45,10 @@ html, body{
 
 .pad{
     position:absolute;
-    height:200px;
-    width:200px;
+    height:150px;
+    width:150px;
     transform:rotate(45deg);
-    border:10px outset silver;
+    border:5px outset silver;
     z-index:3;
     box-sizing:border-box;
     box-shadow:0 0 10px;
