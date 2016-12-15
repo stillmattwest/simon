@@ -1,6 +1,6 @@
 $('document').ready(function () {
     // gameState object stores important variables
-    // GAME STATE
+    // game state object
     var gameState = {
         blueReady: true,
         greenReady: true,
